@@ -1,4 +1,5 @@
 // Global variables
+var hikeListEl = document.querySelector("#hike-list");
 
 // Calls to GeoCoding API by Google and returns lat/long
 var searchAddress = function(address) {
@@ -42,7 +43,23 @@ var searchAddress = function(address) {
 var buildListView = function(trails) {
     // Loop through all hikes provided to the user (10)
     for(var i = 0; i < trails.length; i++) {
-        console.log(trails[i].imgSmall, trails[i].name, trails[i].length);
+        // console.log(trails[i].imgSmall, trails[i].name, trails[i].length);
+        var hikeContainerEl = document.createElement("li");
+        var hikeImgEl = document.createElement("img");
+        hikeImgEl.setAttribute("src", trails[i].imgSmall);
+        hikeImgEl.setAttribute("alt", "Sorry, this hike's image is not available.");
+        var hikeTitleEl = document.createElement("h5");
+        hikeTitleEl.textContent = trails[i].name;
+        var hikeLengthEl = document.createElement("p");
+        hikeLengthEl.textContent = "Length: " + trails[i].length + " miles";
+
+        // Add all elements to hike container
+        hikeContainerEl.appendChild(hikeImgEl);
+        hikeContainerEl.appendChild(hikeTitleEl);
+        hikeContainerEl.appendChild(hikeLengthEl);
+
+        // Add the container to the full list
+        hikeListEl.appendChild(hikeContainerEl);
     }
 }
 
