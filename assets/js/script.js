@@ -15,7 +15,7 @@ var searchAddress = function(address) {
     .then(function(googleData) {
         var lat = googleData.results[0].geometry.location.lat;
         var lon = googleData.results[0].geometry.location.lng;
-        console.log(lat, lon);
+        
         // Once we get lat/long, use second fetch to retrieve data from HikingProject API
         var hikingURL = "https://www.hikingproject.com/data/get-trails?" + 
                 "lat=" + lat + 
@@ -30,7 +30,7 @@ var searchAddress = function(address) {
     })
     // Function that provides functionality to build page
     .then(function(data) {
-        console.log(data);
+        buildListView(data.trails);
     })
 
     // Error if bad connection to server
@@ -38,5 +38,12 @@ var searchAddress = function(address) {
         alert("Unable to find the requested city.");
     });
 };
+
+var buildListView = function(trails) {
+    // Loop through all hikes provided to the user (10)
+    for(var i = 0; i < trails.length; i++) {
+        console.log(trails[i].imgSmall, trails[i].name, trails[i].length);
+    }
+}
 
 searchAddress("37388");
