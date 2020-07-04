@@ -1,57 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hike Details - HIKE FINDER</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
     <!--navigation-->
     <header>
-        <h1> 
-            <a href="/">HIKE FINDER</a>
-        </h1>
+
         <nav>
+            <div class="nav-wrapper black lighten-2">
+                <a href="/" class="brand-logo">HIKE FINDER</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Return to Homepage</a></li>
+                </ul>
+            </div>
+        </nav>
+
     </header>
     <!--hero-->
     <section class="hero">
-        <div class="hero-img">
-            
+        <!--use this ID to attach dynamic elements-->
+        <div id="api-hero-img" class="hero-img">
+            PLACE API IMAGE OF HIKE HERE
             <!-- dynamically add image from hiking API-->
-            
+
         </div>
     </section>
     <!--main with details-->
     <main>
-        <div>
-            PLACE API DATA HERE
+
+        <div class="row">
+            <div class="section">
+                <!--use this ID to attach dynamic elements-->
+                <div id="api-hike-detailp2" class="container blue lighten-5 col l7">
+                    PLACE API DATA HERE
+                </div>
+            </div>
+            <div class="section col l5">
+                <div class="container col s12">
+                    <h5 class="flow-text">Things you may need:</h5>
+
+                    <div>
+                        <ul>
+                            <!-- List item element -->
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Shoes</span>
+                                    </label>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Waterbottle</span>
+                                    </label>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Windbreaker</span>
+                                    </label>
+                                </p>
+                            </li><li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Sunscreen</span>
+                                    </label>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Sunglasses</span>
+                                    </label>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Poles</span>
+                                    </label>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Spare Clothes</span>
+                                    </label>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Backpack</span>
+                                    </label>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Waterproof</span>
+                                    </label>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Caribeaner</span>
+                                    </label>
+                                </p>
+                            </li>
+                            
+                        </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h2>Things you may need:</h2>
-        <div>
-            <ul>
-                <!-- List item element -->
-                <li>
-                    <p>Socks</p>
-                </li>
-                <li>
-                    <p>Shoes</p>
-                </li>
-                <li>
-                    <p>Hat</p>
-                </li>
-                <li>
-                    <p>Water</p>
-                </li>
-                <li>
-                    <p>Sticks</p>
-                </li>
-            </ul>
-        </nav>
+
+        <div class="section">
+            <div class="row center-align">
+                <h7 class="flow-text col s12 col l12">Don't have what you need? No Problem!</h7>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">shopping_cart</i>See Stores
+                    Nearby</a>
+            </div>
         </div>
-        <h3>Don't have what you need? No Problem!</h3>
-        <button>See Stores Nearby</button>
     </main>
-    
+
 </body>
+
 </html>
