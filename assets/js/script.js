@@ -1,5 +1,5 @@
 // Global variables
-var hikeListEl = document.querySelector("#hike-list");
+var hikeListEl = document.querySelector("#hike-search-container");
 
 // Calls to GeoCoding API by Google and returns lat/long
 var searchAddress = function(address) {
@@ -44,22 +44,43 @@ var buildListView = function(trails) {
     // Loop through all hikes provided to the user (10)
     for(var i = 0; i < trails.length; i++) {
         // console.log(trails[i].imgSmall, trails[i].name, trails[i].length);
-        var hikeContainerEl = document.createElement("li");
+        var hikeRowEl = document.createElement("div");
+        hikeRowEl.classList = "row";
+        var hikeColEl = document.createElement("div");
+        hikeColEl.classList = "col s12 m7";
+        var hikeCardEl = document.createElement("div");
+        hikeCardEl.classList = "card";
+        hikeImgContainer = document.createElement("div");
+        hikeImgContainer.classList = "card-image";
         var hikeImgEl = document.createElement("img");
-        hikeImgEl.setAttribute("src", trails[i].imgSmall);
+        hikeImgEl.setAttribute("src", trails[i].imgMedium);
         hikeImgEl.setAttribute("alt", "Sorry, this hike's image is not available.");
-        var hikeTitleEl = document.createElement("h5");
+        var hikeTitleEl = document.createElement("span");
+        hikeTitleEl.classList = "card-title";
         hikeTitleEl.textContent = trails[i].name;
+        var hikeLengthContainer = document.createElement("div");
+        hikeLengthContainer.classList = "card-content";
         var hikeLengthEl = document.createElement("p");
         hikeLengthEl.textContent = "Length: " + trails[i].length + " miles";
+        var hikeActionContainer = document.createElement("div");
+        hikeActionContainer.classList = "card-action";
+        var hikeLinkEl = document.createElement("a");
+        hikeLinkEl.setAttribute("href", "./hikedetails.html");
+        hikeLinkEl.textContent = "View this hike here!";
 
-        // Add all elements to hike container
-        hikeContainerEl.appendChild(hikeImgEl);
-        hikeContainerEl.appendChild(hikeTitleEl);
-        hikeContainerEl.appendChild(hikeLengthEl);
+        // Add all elements to the appropriate container
+        hikeImgContainer.appendChild(hikeImgEl);
+        hikeImgContainer.appendChild(hikeTitleEl);
+        hikeLengthContainer.appendChild(hikeLengthEl);
+        hikeActionContainer.appendChild(hikeLinkEl);
+        hikeCardEl.appendChild(hikeImgContainer);
+        hikeCardEl.appendChild(hikeLengthContainer);
+        hikeCardEl.appendChild(hikeActionContainer);
+        hikeColEl.appendChild(hikeCardEl);
+        hikeRowEl.appendChild(hikeColEl);
 
         // Add the container to the full list
-        hikeListEl.appendChild(hikeContainerEl);
+        hikeListEl.appendChild(hikeRowEl);
     }
 }
 
