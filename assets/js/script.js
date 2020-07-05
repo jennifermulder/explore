@@ -43,7 +43,8 @@ var searchAddress = function(address) {
 var buildListView = function(trails) {
     // Loop through all hikes provided to the user (10)
     for(var i = 0; i < trails.length; i++) {
-        // console.log(trails[i].imgSmall, trails[i].name, trails[i].length);
+
+        // Build elements required in a hike preview item
         var hikeRowEl = document.createElement("div");
         hikeRowEl.classList = "row";
         var hikeColEl = document.createElement("div");
@@ -53,8 +54,13 @@ var buildListView = function(trails) {
         hikeImgContainer = document.createElement("div");
         hikeImgContainer.classList = "card-image";
         var hikeImgEl = document.createElement("img");
-        hikeImgEl.setAttribute("src", trails[i].imgMedium);
-        hikeImgEl.setAttribute("alt", "Sorry, this hike's image is not available.");
+        if(trails[i].imgMedium) {
+            hikeImgEl.setAttribute("src", trails[i].imgMedium);            
+        }
+        else {
+            hikeImgEl.setAttribute("src", "Image/hike-img-default.png");
+        }
+        hikeImgEl.setAttribute("alt", "Trail preview");
         var hikeTitleEl = document.createElement("span");
         hikeTitleEl.classList = "card-title";
         hikeTitleEl.textContent = trails[i].name;
