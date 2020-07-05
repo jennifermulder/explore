@@ -1,38 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nearby Stores - HIKE FINDER</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
     <!--hinavigation-->
     <header>
-        <h1> 
-            <a href="index.html">HIKE FINDER</a>
-        </h1>
         <nav>
+            <div class="nav-wrapper black lighten-2">
+                <a href="index.html" class="brand-logo">HIKE FINDER</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Start New Search</a></li>
+
+                </ul>
+            </div>
+        </nav>
     </header>
     <!--this hero should be a little smaller than the hike details hero-->
-    <section class="hero">
-        <div class="hero-img">
-            
-            <!-- dynamically add image from hiking API-->
-            <!-- dynamically add name/ other details-->
-            <h1> 
-                <a href="/">Return to Hike Details</a>
-            </h1>
+    <section>
+        <!--use this ID to attach dynamic elements-->
+        <div id="api-hike-detailp3" class="card">
+            <!--example of elements that need to be dynamically created-->
+            <div class="card-image">
+                <img id="hero3-img" src="./assets/images/mountains.jpg">
+            </div>
+            <div class="card-content">
+                <p>EXAMPLE </br> Name of the hike </br> weather </br> city</p>
+            </div>
         </div>
+        <h8>
+            <a href="hikedetails.html">Return to Hike Details</a>
+        </h8>
+
     </section>
-    <main>
-        <div>
-            
+
+    <main class="container">
+        <div class="row">
+            <div class="section">
+                <h7>Find Stores in a different area:</h7>
+                <!--Search Bar-->
+                <div class="zip">
+                    <input type="text" placeholder="Zip Code" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
+                    <button class="btn waves-effect teal darken-4" type="submit" name="action">Submit
+                </div>
+            </div>
         </div>
-        <div class="Hike containers">
-            
+
+        <div class="section">
+            <h5>Stores found near your hike:</h5>
+            <!--use this ID to append API Data-->
+            <div id="hike-containers">
+                <div class="container">
+                    HIKING STORE OPTIONS ARE APPENDED HERE
+                    <!--example-->
+                    <div class="row">
+                        <div class="col s12 m6 l4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="./assets/images/mountains.jpg">
+                                    <span class="card-title">Card Title</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>Name of store </br> Address: </br> Distance?
+                                    </p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">Directions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </main>
 
 </body>
+
 </html>
