@@ -1,9 +1,11 @@
 // Global variables
 var hikeListEl = document.querySelector("#hike-search-container");
+var locationSearchFormEl = document.querySelector("#location-search-form");
+var locationSearchDescription = document.querySelector("#location-search");
 
 // Calls to GeoCoding API by Google and returns lat/long
 var searchAddress = function(address) {
-
+    
     var apiURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + 
                     address + 
                     "&key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w";
@@ -41,6 +43,18 @@ var searchAddress = function(address) {
 };
 
 var buildListView = function(trails) {
+
+    // Clear the current list
+    hikeListEl.innerHTML = "";
+
+    // If trails is empty, display error message
+    if(trails.length === 0) {
+        var noTrailWarning = document.querySelector("p");
+        noTrailWarning.classList = "flow-text";
+        noTrailWarning.textContent = "Sorry, no trails are available for the given location. Try a more specific location.";
+        hikeListEl.appendChild(noTrailWarning);
+    }
+
     // Loop through all hikes provided to the user (10)
     for(var i = 0; i < trails.length; i++) {
 
@@ -91,4 +105,22 @@ var buildListView = function(trails) {
     }
 }
 
-searchAddress("37388");
+// Process when the form is submitted
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+
+    // Get the address the user input, if empty, alert them and return
+    var address = locationSearchDescription.value;
+    if(!address) {
+        alert("You must enter an address.");
+        return;
+    }
+    locationSearchDescription.value = "";
+
+    // Search for the provided address
+    var searchResultEl = document.querySelector("#search-result");
+    searchResultEl.textContent = "Search Results for: " + address.toUpperCase();
+    searchAddress(address);
+}
+
+locationSearchFormEl.addEventListener("submit", formSubmitHandler);
