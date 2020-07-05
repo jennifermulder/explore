@@ -54,16 +54,17 @@ var buildListView = function(trails) {
         hikeImgContainer = document.createElement("div");
         hikeImgContainer.classList = "card-image";
         var hikeImgEl = document.createElement("img");
-        if(trails[i].imgMedium) {
-            hikeImgEl.setAttribute("src", trails[i].imgMedium);            
-        }
-        else {
-            hikeImgEl.setAttribute("src", "Image/hike-img-default.png");
-        }
         hikeImgEl.setAttribute("alt", "Trail preview");
         var hikeTitleEl = document.createElement("span");
         hikeTitleEl.classList = "card-title";
         hikeTitleEl.textContent = trails[i].name;
+        if(trails[i].imgMedium) {
+            hikeImgEl.setAttribute("src", trails[i].imgMedium);            
+        }
+        else {
+            hikeImgEl.setAttribute("src", "./assets/images/hike-img-default.png");
+            hikeTitleEl.classList = "card-title black-text";
+        }
         var hikeLengthContainer = document.createElement("div");
         hikeLengthContainer.classList = "card-content";
         var hikeLengthEl = document.createElement("p");
