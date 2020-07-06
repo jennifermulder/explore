@@ -17,3 +17,16 @@
 #hero3-img {
     max-height: 15rem;
 }
+
+/* Google Maps Styling */
+#map {
+    height: 50%;
+    width: 50%;
+}
+/* Store List and Selected Store Detail Styling */
+html,
+body {
+    height: 100%;
+    margin: 1;
+    padding: 1;
+}

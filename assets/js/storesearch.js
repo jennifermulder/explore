@@ -36,8 +36,10 @@ function main() {
 /* Helper function */
 // Geocode zipcode or address to lattitude/longitude and search nearby places.
 function getNearbySearch(zipcode) {
-    if(debug)
+    if(debug) {
         console.log("start::func setupMap()");
+        console.log("Zipcode provided = " + zipcode);
+    }
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ address : zipcode},
         function(results,status) {

@@ -8,6 +8,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <!--Add APIs required for storesearch.js script-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w&callback=main&libraries=places&v=weekly"
+    defer
+    ></script>
+    <script src="./assets/js/storesearch.js"></script>
+
 </head>
 
 <body>
@@ -47,8 +55,8 @@
                 <h7>Find Stores in a different area:</h7>
                 <!--Search Bar-->
                 <div class="zip">
-                    <input type="text" placeholder="Zip Code" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
-                    <button class="btn waves-effect teal darken-4" type="submit" name="action">Submit
+                    <input id="zipcode" type="textbox" value="94086" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
+                    <button id="submit" class="btn waves-effect teal darken-4" type="submit" name="action">Submit
                 </div>
             </div>
         </div>
@@ -82,7 +90,9 @@
         </div>
 
     </main>
-
+    <!--Google Map, Store List and Selected Store Detail div-->
+    <div id="map">
+    </div>
 </body>
 
 </html>
