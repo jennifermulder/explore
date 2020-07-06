@@ -1,110 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIKE FINDER</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-
-
-</head>
-
-<body>
-
-    <!-- navigation-->
-
-    <header>
-
-        <nav>
-            <div class="nav-wrapper black lighten-2">
-                <a class="brand-logo">HIKE FINDER</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="hike">My Hikes</a></li>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HIKE FINDER</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <header>
+            <!-- navigation-->
+            <nav>
+                <div class="nav-wrapper black lighten-2">
+                    <a class="brand-logo">HIKE FINDER</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="hike">My Hikes</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!--navigation end-->
+        </header>
+        <!-- Hero element -->
+        <section class="hero"></section>
+        <!-- Container for search bar -->
+        <main class="container">
+            <div>
+                <h3 class="flow-text">Where do you want to explore today?</h3>
+            </div>
+            <div class="search-container ">
+                <form id="location-search-form">
+                    <input type="text" placeholder="Search.." name="search" id="location-search">
+                    <button class="btn waves-effect teal darken-4" type="submit">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+            <div>
+                <ul id="hike-list">
                 </ul>
             </div>
-        </nav>
-        <!--navigation end-->
-
-    </header>
-
-
-    <section class="hero"></section>
-
-    <main class="container">
-        <div>
-            <h3 class="flow-text">Where do you want to explore today?</h3>
-        </div>
-        <!--Search Bar-->
-        <div class="search-container ">
-            <form action="https://en.wikipedia.org/wiki/Hiking">
-                <input type="text" placeholder="Search.." name="search">
-                <button class="btn waves-effect teal darken-4" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
-        </div>
-
-        <div>
-            <ul id="hike-list">
-
-            </ul>
-        </div>
-        <h4 class="flow-text">Search Results for: </h4>
-        <div id="hike-search-container">
-            HIKING OPTIONS ARE APPENDED HERE
-            <!--example-->
-            <div class="row">
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="./assets/images/mountains.jpg">
-                            <span class="card-title">Name of HIKE</span>
+            <!-- List of hikes in local area -->
+            <h4 class="flow-text" id="search-result">Enter a location to view local hikes!</h4>
+            <div id="hike-search-container">
+                <!--example hike element built in JS -->
+                <!-- <div class="row">
+                    <div class="col s12 m6 l4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="./assets/images/mountains.jpg">
+                                <span class="card-title">Name of HIKE</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Length: x miles
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <a href="hikedetails.html">Hike Details</a>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <p>Length: x miles
-                            </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="hikedetails.html">Hike Details</a>
-                        </div>
+                    </div>
+                </div> -->
+        </main>
+        <!-- Footer -->
+        <footer class="page-footer black lighten-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Hiking</h5>
+                        <p class="grey-text text-lighten-4"> Walking is good exercise for your heart ❤️! </p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Contact Us</h5>
+                        <address>
+                            21 Jump Street <br />
+                            Springfield, CA <br />
+                            24680<br />
+                            P: 555.YOU.HIKE (555.968.4453)<br />
+                            E: <a href="mailto:info@hikefinder.io">info@hikefinder.io</a>
+                        </address>
                     </div>
                 </div>
             </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="page-footer black lighten-2">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Hiking</h5>
-                    <p class="grey-text text-lighten-4"> Walking is good exercise for your heart ❤️! </p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Contact Us</h5>
-                    <address>
-                        21 Jump Street <br />
-                        Springfield, CA <br />
-                        24680<br />
-                        P: 555.YOU.HIKE (555.968.4453)<br />
-                        E: <a href="mailto:info@hikefinder.io">info@hikefinder.io</a>
-                    </address>
+            <div class="footer-copyright black lighten-2">
+                <div class="container">
+                    © HikeFinder
                 </div>
             </div>
-        </div>
-        <div class="footer-copyright black lighten-2">
-            <div class="container">
-                © HikeFinder
-            </div>
-        </div>
-    </footer>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-</body>
-
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+    </body>
 </html>

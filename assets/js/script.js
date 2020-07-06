@@ -1,9 +1,11 @@
 // Global variables
-var hikeListEl = document.querySelector("#hike-list");
+var hikeListEl = document.querySelector("#hike-search-container");
+var locationSearchFormEl = document.querySelector("#location-search-form");
+var locationSearchDescription = document.querySelector("#location-search");
 
 // Calls to GeoCoding API by Google and returns lat/long
 var searchAddress = function(address) {
-
+    
     var apiURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + 
                     address + 
                     "&key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w";
@@ -41,26 +43,84 @@ var searchAddress = function(address) {
 };
 
 var buildListView = function(trails) {
+
+    // Clear the current list
+    hikeListEl.innerHTML = "";
+
+    // If trails is empty, display error message
+    if(trails.length === 0) {
+        var noTrailWarning = document.querySelector("p");
+        noTrailWarning.classList = "flow-text";
+        noTrailWarning.textContent = "Sorry, no trails are available for the given location. Try a more specific location.";
+        hikeListEl.appendChild(noTrailWarning);
+    }
+
     // Loop through all hikes provided to the user (10)
     for(var i = 0; i < trails.length; i++) {
-        // console.log(trails[i].imgSmall, trails[i].name, trails[i].length);
-        var hikeContainerEl = document.createElement("li");
+
+        // Build elements required in a hike preview item
+        var hikeRowEl = document.createElement("div");
+        hikeRowEl.classList = "row";
+        var hikeColEl = document.createElement("div");
+        hikeColEl.classList = "col s12 m7";
+        var hikeCardEl = document.createElement("div");
+        hikeCardEl.classList = "card";
+        hikeImgContainer = document.createElement("div");
+        hikeImgContainer.classList = "card-image";
         var hikeImgEl = document.createElement("img");
-        hikeImgEl.setAttribute("src", trails[i].imgSmall);
-        hikeImgEl.setAttribute("alt", "Sorry, this hike's image is not available.");
-        var hikeTitleEl = document.createElement("h5");
+        hikeImgEl.setAttribute("alt", "Trail preview");
+        var hikeTitleEl = document.createElement("span");
+        hikeTitleEl.classList = "card-title";
         hikeTitleEl.textContent = trails[i].name;
+        if(trails[i].imgMedium) {
+            hikeImgEl.setAttribute("src", trails[i].imgMedium);            
+        }
+        else {
+            hikeImgEl.setAttribute("src", "./assets/images/hike-img-default.png");
+            hikeTitleEl.classList = "card-title black-text";
+        }
+        var hikeLengthContainer = document.createElement("div");
+        hikeLengthContainer.classList = "card-content";
         var hikeLengthEl = document.createElement("p");
         hikeLengthEl.textContent = "Length: " + trails[i].length + " miles";
+        var hikeActionContainer = document.createElement("div");
+        hikeActionContainer.classList = "card-action";
+        var hikeLinkEl = document.createElement("a");
+        hikeLinkEl.setAttribute("href", "./hikedetails.html");
+        hikeLinkEl.textContent = "View this hike here!";
 
-        // Add all elements to hike container
-        hikeContainerEl.appendChild(hikeImgEl);
-        hikeContainerEl.appendChild(hikeTitleEl);
-        hikeContainerEl.appendChild(hikeLengthEl);
+        // Add all elements to the appropriate container
+        hikeImgContainer.appendChild(hikeImgEl);
+        hikeImgContainer.appendChild(hikeTitleEl);
+        hikeLengthContainer.appendChild(hikeLengthEl);
+        hikeActionContainer.appendChild(hikeLinkEl);
+        hikeCardEl.appendChild(hikeImgContainer);
+        hikeCardEl.appendChild(hikeLengthContainer);
+        hikeCardEl.appendChild(hikeActionContainer);
+        hikeColEl.appendChild(hikeCardEl);
+        hikeRowEl.appendChild(hikeColEl);
 
         // Add the container to the full list
-        hikeListEl.appendChild(hikeContainerEl);
+        hikeListEl.appendChild(hikeRowEl);
     }
 }
 
-searchAddress("37388");
+// Process when the form is submitted
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+
+    // Get the address the user input, if empty, alert them and return
+    var address = locationSearchDescription.value;
+    if(!address) {
+        alert("You must enter an address.");
+        return;
+    }
+    locationSearchDescription.value = "";
+
+    // Search for the provided address
+    var searchResultEl = document.querySelector("#search-result");
+    searchResultEl.textContent = "Search Results for: " + address.toUpperCase();
+    searchAddress(address);
+}
+
+locationSearchFormEl.addEventListener("submit", formSubmitHandler);
