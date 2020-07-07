@@ -4,7 +4,9 @@
     line-height: 1;
 } */
 
+
 /* Hero Style Start */
+
 .hero {
     background-image: url("../images/mountains.jpg");
     background-size: cover;
@@ -12,18 +14,32 @@
     background-attachment: fixed;
     min-height: 15rem;
 }
+
+
 /* Hero Style End */
 
 #hero3-img {
     max-height: 15rem;
 }
 
+
 /* Google Maps Styling */
+
 #map {
     height: 50%;
     width: 50%;
+    margin: auto;
 }
+
+#StoreList {
+    text-align: center;
+    font-size: x-large;
+    color: blue;
+}
+
+
 /* Store List and Selected Store Detail Styling */
+
 html,
 body {
     height: 100%;
