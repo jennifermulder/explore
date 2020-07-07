@@ -7,15 +7,8 @@
     <title>Nearby Stores - HIKE FINDER</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <!--Add APIs required for storesearch.js script-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w&callback=main&libraries=places&v=weekly"
-    defer
-    ></script>
-    <script src="./assets/js/storesearch.js"></script>
-
 </head>
 
 <body>
@@ -26,7 +19,6 @@
                 <a href="index.html" class="brand-logo">HIKE FINDER</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="index.html">Start New Search</a></li>
-
                 </ul>
             </div>
         </nav>
@@ -55,7 +47,8 @@
                 <h7>Find Stores in a different area:</h7>
                 <!--Search Bar-->
                 <div class="zip">
-                    <input id="zipcode" type="textbox" value="94086" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
+                    <input id="zipcode" type="textbox" value="94086" title="Please enter a Zip Code"
+                        pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
                     <button id="submit" class="btn waves-effect teal darken-4" type="submit" name="action">Submit
                 </div>
             </div>
@@ -63,12 +56,12 @@
 
         <div class="section">
             <h5>Stores found near your hike:</h5>
-            <!--use this ID to append API Data-->
+            <!-- use this ID to append API Data
             <div id="hike-containers">
                 <div class="container">
                     HIKING STORE OPTIONS ARE APPENDED HERE
-                    <!--example-->
-                    <div class="row">
+                    -->
+                    <!-- <div class="row">
                         <div class="col s12 m6 l4">
                             <div class="card">
                                 <div class="card-image">
@@ -86,13 +79,28 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </main>
     <!--Google Map, Store List and Selected Store Detail div-->
-    <div id="map">
+    <div id="map" class="container">
     </div>
+    <footer class="page-footer black lighten-2">
+        <div class="footer-copyright black lighten-2">
+            <div class="container">
+                © HikeFinder
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Add APIs required for storesearch.js script-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w&callback=main&libraries=places&v=weekly"
+        defer></script>
+    <script src="./assets/js/storesearch.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

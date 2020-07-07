@@ -60,9 +60,9 @@ var buildListView = function(trails) {
 
         // Build elements required in a hike preview item
         var hikeRowEl = document.createElement("div");
-        hikeRowEl.classList = "row";
+        // hikeRowEl.classList = "row";
         var hikeColEl = document.createElement("div");
-        hikeColEl.classList = "col s12 m7";
+        hikeColEl.classList = "col s12 m6 l4";
         var hikeCardEl = document.createElement("div");
         hikeCardEl.classList = "card";
         hikeImgContainer = document.createElement("div");

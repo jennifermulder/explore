@@ -136,6 +136,7 @@ function createMarker(place) {
 function createStoreListDOM(zipcode) {
     // Display nearby search results as a DOM list
     storesList = document.createElement('div');
+    storesList.classList = "container center-align";
     storesList.id = 'StoreList';
     storesList.innerHTML = 'Store List near ' + zipcode;
     storesUL = document.createElement('ul');

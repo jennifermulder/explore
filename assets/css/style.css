@@ -4,6 +4,16 @@
     line-height: 1;
 } */
 
+nav a {
+    background-color: black;
+}
+
+nav a:hover {
+    background: teal;
+    color: white;
+    text-decoration: underline;
+    
+}
 /* Hero Style Start */
 .hero {
     background-image: url("../images/mountains.jpg");
@@ -16,6 +26,16 @@
 
 #hero3-img {
     max-height: 15rem;
+}
+
+h3 {
+    animation: bounce; 
+    animation-duration: 2s;
+}
+
+h5 {
+    animation: heartBeat; 
+    animation-duration: 2s;
 }
 
 /* Google Maps Styling */
