@@ -23,8 +23,20 @@ var getTrailDetails = function(trailID) {
     });
 }
 
+// Builds the trail details on the page
 var buildTrailDetails = function(trail) {
     console.log(trail);
+}
+
+// Gets the hike ID from the query selector
+var getTrailID = function() {
+    var trailID = document.location.search.split("=")[1];
+    if(trailID) {
+        getTrailDetails(trailID);
+    }
+    else {
+        document.location.replace("./index.html");
+    }
 }
 
 getTrailDetails("7011192");
