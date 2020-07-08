@@ -17,7 +17,7 @@ nav a:hover {
 
 /* Hero Style Start */
 
-.hero {
+/* .hero {
     background-image: url("../images/mountains.jpg");
     background-size: cover;
     background-position: 80%;
@@ -28,8 +28,12 @@ nav a:hover {
 
 /* Hero Style End */
 
-#hero3-img {
+/* #hero3-img {
     max-height: 15rem;
+} */ 
+
+.slider {
+    background-position: 80%;
 }
 
 h3 {
