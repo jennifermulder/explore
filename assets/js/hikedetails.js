@@ -20,9 +20,9 @@ var getTrailDetails = function(trailID) {
     })
 
     // Error catching here
-    // .catch(function(error) {
-    //     alert("Unable to find the requested trail.");
-    // });
+    .catch(function(error) {
+        alert("Unable to find the requested trail.");
+    });
 }
 
 // Builds the trail details on the page
