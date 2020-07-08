@@ -7,8 +7,8 @@ var locationSearchDescription = document.querySelector("#location-search");
 var searchAddress = function(address) {
     
     var apiURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + 
-                    address + 
-                    "&key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w";
+                  address + 
+                  "&key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w";
 
     // Use first fetch to get latitude and longitude of user-input city
     fetch(apiURL)
@@ -86,7 +86,7 @@ var buildListView = function(trails) {
         var hikeActionContainer = document.createElement("div");
         hikeActionContainer.classList = "card-action";
         var hikeLinkEl = document.createElement("a");
-        hikeLinkEl.setAttribute("href", "./hikedetails.html");
+        hikeLinkEl.setAttribute("href", "./hikedetails.html?trail-id=" + trails[i].id);
         hikeLinkEl.textContent = "View this hike here!";
 
         // Add all elements to the appropriate container
