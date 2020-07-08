@@ -1,3 +1,5 @@
+// Global variables
+var hikeListEl = document.querySelector("#api-hike-detailp2");
 
 // Function to pull trail details
 var getTrailDetails = function(trailID) {
@@ -18,14 +20,53 @@ var getTrailDetails = function(trailID) {
     })
 
     // Error catching here
-    .catch(function(error) {
-        alert("Unable to find the requested trail.");
-    });
+    // .catch(function(error) {
+    //     alert("Unable to find the requested trail.");
+    // });
 }
 
 // Builds the trail details on the page
 var buildTrailDetails = function(trail) {
-    console.log(trail);
+
+    // Clear anything currently included
+    hikeListEl.innerHTML = "";
+
+    // Build DOM elements
+    var titleEl = document.createElement("h3");
+    titleEl.textContent = trail.name;
+    var imgEl = document.createElement("img");
+    imgEl.setAttribute("src", trail.imgSmallMed);
+    imgEl.setAttribute("alt", "trail highlight");
+    var summaryEl = document.createElement("p");
+    summaryEl.textContent = "Summary: " + trail.summary;
+    var locationEl = document.createElement("p");
+    locationEl.textContent = "Location: " + trail.location;
+    var distanceEl = document.createElement("p");
+    distanceEl.textContent = "Distance: " + trail.length;
+    var difficultyEl = document.createElement("p");
+    difficultyEl.textContent = "Difficulty:  ";
+
+    // Create the image for the difficulty
+    var difficultyImgEl = document.createElement("img");
+    difficultyImgEl.setAttribute("src", "./assets/images/" + trail.difficulty + ".svg");
+    difficultyImgEl.setAttribute("alt", trail.difficulty);
+    difficultyEl.appendChild(difficultyImgEl);
+
+    // Continue DOM elements
+    var altitudeHighEl = document.createElement("p");
+    altitudeHighEl.textContent = "High: " + trail.high + " feet"
+    var altitudeLowEl = document.createElement("p");
+    altitudeLowEl.textContent = "Low: " + trail.low + " feet"
+
+    // Append elements on the list
+    hikeListEl.appendChild(titleEl);
+    hikeListEl.appendChild(imgEl);
+    hikeListEl.appendChild(summaryEl);
+    hikeListEl.appendChild(locationEl);
+    hikeListEl.appendChild(distanceEl);
+    hikeListEl.appendChild(difficultyEl);
+    hikeListEl.appendChild(altitudeHighEl);
+    hikeListEl.appendChild(altitudeLowEl);
 }
 
 // Gets the hike ID from the query selector
@@ -39,4 +80,4 @@ var getTrailID = function() {
     }
 }
 
-getTrailDetails("7011192");
+getTrailID();
