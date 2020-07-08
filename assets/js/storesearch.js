@@ -6,9 +6,12 @@ let displayMarkerDetails;
 
 // Fixme: Update map elementId name
 let mapContainerId = "map";
+// Fixme: Update store detail history elementId name
+let storeHistoryContainerId = "storeSearchHistory";
 // Fixme: Update zipcode elementId name
 let zipcodeId = "zipcode";
 // Default position: San Francisco, CA.
+let defaultArea = "San Francisco, CA";
 let searchAreaPos = { lat: 37.773972, lng: -122.431297 };
 // Console debug log.
 let debug = 0;
@@ -16,6 +19,9 @@ let debug = 0;
 let searchKeyword = 'sporting good store';
 // Max nearcbySearch results.
 let maxresults = 10;
+// Local storage for store detail
+let storeHistory = JSON.parse(localStorage.getItem("store")) || [];
+let maxStoreHistory = 5;
 
 // Main function that runs the show.
 function main() {
@@ -40,6 +46,9 @@ function getNearbySearch(zipcode) {
         console.log("start::func setupMap()");
         console.log("Zipcode provided = " + zipcode);
     }
+    if (zipcode === ""){
+        zipcode = defaultArea;
+    }
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ address : zipcode},
         function(results,status) {
@@ -53,9 +62,8 @@ function getNearbySearch(zipcode) {
                     zoom: 15
                 });
                 map.setCenter(results[0].geometry.location);
-                
-
-                console.log(searchAreaPos);
+                if(debug)
+                    console.log(searchAreaPos);
                 let request = {
                     location: searchAreaPos,
                     rankBy: google.maps.places.RankBy.DISTANCE,
@@ -87,6 +95,7 @@ function getNearbySearch(zipcode) {
             }
         }
     );
+    historyStoreDetailDOM();
 }
 // Create a map marker/pin
 function createMarker(place) {
@@ -115,7 +124,7 @@ function createMarker(place) {
                     if (document.contains(document.getElementById("StoreDetails"))) {
                         document.getElementById('StoreDetails').remove();
                     }
-                    createStoreDetailDOM(zipcode);
+                    createStoreDetailDOM();
                     if(displayMarkerDetails){
                         let storeDetailLI = document.createElement('li');
                         storeDetailUL.appendChild(storeDetailLI);
@@ -126,11 +135,33 @@ function createMarker(place) {
                         storeDetailLI = document.createElement('li');
                         storeDetailUL.appendChild(storeDetailLI);
                         storeDetailLI.innerHTML += "Website: " + placeResult.website;
+
+                        // Local storage for selected stores
+                        historyStoreDetail(placeResult.name, placeResult.formatted_address);
+                        historyStoreDetailDOM();
                     }
                 }
             }
         );
     });
+}
+// Maintain a history of store details clicked by the user
+function historyStoreDetail(name, address){
+    storeDetail = name + "[" + address + "]"
+    if(debug)
+        console.log(storeDetail);
+    // Check if store is already is local storage
+    if(storeHistory.includes(storeDetail) == false) {
+        storeHistory.push(storeDetail);
+    }
+    if(debug)
+        console.log(storeHistory.length);
+    if(storeHistory.length >= maxStoreHistory){
+        if(debug)
+            console.log("Max local storage exceeded, will start splicing");
+        storeHistory.splice(0, (storeHistory.length - maxStoreHistory));
+    }
+    localStorage.setItem("store",JSON.stringify(storeHistory));
 }
 // Create HTML DOM for store list
 function createStoreListDOM(zipcode) {
@@ -138,13 +169,13 @@ function createStoreListDOM(zipcode) {
     storesList = document.createElement('div');
     storesList.classList = "container center-align";
     storesList.id = 'StoreList';
-    storesList.innerHTML = 'Store List near ' + zipcode;
+    storesList.innerHTML = 'Stores near ' + zipcode;
     storesUL = document.createElement('ul');
     storesList.appendChild(storesUL);
     document.body.insertBefore(storesList, document.getElementById(mapContainerId).nextSibling);
 }
 // Create HTML DOM for detail on selected store
-function createStoreDetailDOM(zipcode) {
+function createStoreDetailDOM() {
     // Display details on selected result as a DOM list
     storeDetailList = document.createElement('div');
     storeDetailList.id = 'StoreDetails';
@@ -152,6 +183,28 @@ function createStoreDetailDOM(zipcode) {
     storeDetailUL = document.createElement('ul');
     storeDetailList.appendChild(storeDetailUL);
     document.body.insertBefore(storeDetailList, document.getElementById("StoreList").nextSibling);
+}
+// Create HTML DOM for store list history and display as a list
+function historyStoreDetailDOM() {
+    if(debug)
+        console.log("Refreshing store history");
+    // Remove existing history from HTML page as a part of the refresh
+    if (document.contains(document.getElementById('StoreDetailsHistory'))) {
+        document.getElementById('StoreDetailsHistory').remove();
+    }
+    // Display history of stores selected as a DOM list
+    storeDetailListHistory = document.createElement('div');
+    storeDetailListHistory.id = 'StoreDetailsHistory';
+    storeDetailListHistory.innerHTML = 'History of Selected Stores';
+    storeDetailHistoryUL = document.createElement('ul');
+    storeDetailListHistory.appendChild(storeDetailHistoryUL);
+    document.body.insertBefore(storeDetailListHistory, document.getElementById(storeHistoryContainerId).nextSibling);
+    // Display history on HTML pulled from localstorage
+    for (var i = 0; i < storeHistory.length; i++) {
+        let storeHistoryLI = document.createElement('li');
+        storeDetailHistoryUL.appendChild(storeHistoryLI);
+        storeHistoryLI.innerHTML += storeHistory[i];
+    }
 }
 // Redo nearby place search when a new zipcode is provided
 function updateSearchArea() {
