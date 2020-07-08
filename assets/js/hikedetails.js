@@ -1,5 +1,7 @@
 // Global variables
+var trailID = "";
 var hikeListEl = document.querySelector("#api-hike-detailp2");
+var storesBtnEl = document.querySelector("#stores-btn");
 
 // Function to pull trail details
 var getTrailDetails = function(trailID) {
@@ -71,7 +73,7 @@ var buildTrailDetails = function(trail) {
 
 // Gets the hike ID from the query selector
 var getTrailID = function() {
-    var trailID = document.location.search.split("=")[1];
+    trailID = document.location.search.split("=")[1];
     if(trailID) {
         getTrailDetails(trailID);
     }
@@ -80,4 +82,10 @@ var getTrailID = function() {
     }
 }
 
+// Passes query for trail-id to hikestores.html
+var storesBtnHandler = function(event) {
+    storesBtnEl.setAttribute("href", "./hikestores.html?trail-id=" + trailID);
+}
+
 getTrailID();
+storesBtnEl.addEventListener("click", storesBtnHandler());
