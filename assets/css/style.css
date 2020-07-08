@@ -12,8 +12,8 @@ nav a:hover {
     background: teal;
     color: white;
     text-decoration: underline;
-    
 }
+
 
 /* Hero Style Start */
 
@@ -33,14 +33,15 @@ nav a:hover {
 }
 
 h3 {
-    animation: bounce; 
+    animation: bounce;
     animation-duration: 2s;
 }
 
 h5 {
-    animation: heartBeat; 
+    animation: heartBeat;
     animation-duration: 2s;
 }
+
 
 /* Google Maps Styling */
 
@@ -51,7 +52,7 @@ h5 {
 }
 
 #StoreList {
-    text-align: center;
+    text-align: inherit;
     font-size: x-large;
     color: blue;
 }

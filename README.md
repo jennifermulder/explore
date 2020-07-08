@@ -1,6 +1,6 @@
 # **Explore: Explore the world one Hike at a Time with HIKE FINDER**
 
-![](assets/images/hike-finder.jpg)
+![](assets/images/hike-finder.png)
 
 ## **Purpose**
 During times of social distancing, it is important for people to take advantage of things that still remain open, such as the outdoors, and more specifically - hiking. HIKE FINDER provides the user with a one stop shop for everything they need to know to prepare for their next adventure. 
@@ -24,6 +24,8 @@ First phase
 
 ## Planned Enhancements
 User's ability to add the searched hike to a personal list of saved hikes with local storage
+Also the user can decide the difficulty of the walk that he wants to do, per example: length, 
+altitude, weather conditions, ratings, and more...
 
 ## Contribution
-Created by Nathan McAnally, Mario Molina, Jennifer Mulder, and Sparsh Patwa
+Created by Nathan McAnally, Mario Viana, Jennifer Mulder, and Sparsh Patwa

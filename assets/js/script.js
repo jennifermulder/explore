@@ -5,36 +5,36 @@ var locationSearchDescription = document.querySelector("#location-search");
 
 // Calls to GeoCoding API by Google and returns lat/long
 var searchAddress = function(address) {
-    
-    var apiURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + 
-                    address + 
-                    "&key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w";
+
+    var apiURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
+        address +
+        "&key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w";
 
     // Use first fetch to get latitude and longitude of user-input city
     fetch(apiURL)
-    .then(function(googleResponse) {
-        return googleResponse.json(); 
-    })
-    .then(function(googleData) {
-        var lat = googleData.results[0].geometry.location.lat;
-        var lon = googleData.results[0].geometry.location.lng;
-        
-        // Once we get lat/long, use second fetch to retrieve data from HikingProject API
-        var hikingURL = "https://www.hikingproject.com/data/get-trails?" + 
-                "lat=" + lat + 
+        .then(function(googleResponse) {
+            return googleResponse.json();
+        })
+        .then(function(googleData) {
+            var lat = googleData.results[0].geometry.location.lat;
+            var lon = googleData.results[0].geometry.location.lng;
+
+            // Once we get lat/long, use second fetch to retrieve data from HikingProject API
+            var hikingURL = "https://www.hikingproject.com/data/get-trails?" +
+                "lat=" + lat +
                 "&lon=" + lon +
                 "&key=200820241-a86aed042606dfdfd7bf8931045a1ecf"
-        return fetch(hikingURL)
-    })
+            return fetch(hikingURL)
+        })
 
     // Response to inner fetch
     .then(function(response) {
-        return response.json();
-    })
-    // Function that provides functionality to build page
-    .then(function(data) {
-        buildListView(data.trails);
-    })
+            return response.json();
+        })
+        // Function that provides functionality to build page
+        .then(function(data) {
+            buildListView(data.trails);
+        })
 
     // Error if bad connection to server
     .catch(function(error) {
@@ -48,7 +48,7 @@ var buildListView = function(trails) {
     hikeListEl.innerHTML = "";
 
     // If trails is empty, display error message
-    if(trails.length === 0) {
+    if (trails.length === 0) {
         var noTrailWarning = document.querySelector("p");
         noTrailWarning.classList = "flow-text";
         noTrailWarning.textContent = "Sorry, no trails are available for the given location. Try a more specific location.";
@@ -56,7 +56,7 @@ var buildListView = function(trails) {
     }
 
     // Loop through all hikes provided to the user (10)
-    for(var i = 0; i < trails.length; i++) {
+    for (var i = 0; i < trails.length; i++) {
 
         // Build elements required in a hike preview item
         var hikeRowEl = document.createElement("div");
@@ -72,10 +72,9 @@ var buildListView = function(trails) {
         var hikeTitleEl = document.createElement("span");
         hikeTitleEl.classList = "card-title";
         hikeTitleEl.textContent = trails[i].name;
-        if(trails[i].imgMedium) {
-            hikeImgEl.setAttribute("src", trails[i].imgMedium);            
-        }
-        else {
+        if (trails[i].imgMedium) {
+            hikeImgEl.setAttribute("src", trails[i].imgMedium);
+        } else {
             hikeImgEl.setAttribute("src", "./assets/images/hike-img-default.png");
             hikeTitleEl.classList = "card-title black-text";
         }
@@ -111,7 +110,7 @@ var formSubmitHandler = function(event) {
 
     // Get the address the user input, if empty, alert them and return
     var address = locationSearchDescription.value;
-    if(!address) {
+    if (!address) {
         alert("You must enter an address.");
         return;
     }
