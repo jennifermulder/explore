@@ -169,7 +169,7 @@ function createStoreListDOM(zipcode) {
     storesList = document.createElement('div');
     storesList.classList = "container center-align";
     storesList.id = 'StoreList';
-    storesList.innerHTML = '<h3>Stores near </h3>' + zipcode;
+    storesList.innerHTML = '<h4>' + zipcode + '</h4>';
     storesUL = document.createElement('ul');
     storesList.appendChild(storesUL);
     document.body.insertBefore(storesList, document.getElementById(mapContainerId).nextSibling);
@@ -195,6 +195,7 @@ function historyStoreDetailDOM() {
     // Display history of stores selected as a DOM list
     storeDetailListHistory = document.createElement('div');
     storeDetailListHistory.id = 'StoreDetailsHistory';
+    storeDetailListHistory.classList = "container";
     storeDetailListHistory.innerHTML = '<h3>History of Selected Stores</h3>';
     storeDetailHistoryUL = document.createElement('ul');
     storeDetailListHistory.appendChild(storeDetailHistoryUL);
@@ -202,6 +203,7 @@ function historyStoreDetailDOM() {
     // Display history on HTML pulled from localstorage
     for (var i = 0; i < storeHistory.length; i++) {
         let storeHistoryLI = document.createElement('li');
+        storeHistoryLI.classList = "section badge";
         storeDetailHistoryUL.appendChild(storeHistoryLI);
         storeHistoryLI.innerHTML += storeHistory[i];
     }
