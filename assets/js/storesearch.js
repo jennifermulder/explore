@@ -169,7 +169,7 @@ function createStoreListDOM(zipcode) {
     storesList = document.createElement('div');
     storesList.classList = "container center-align";
     storesList.id = 'StoreList';
-    storesList.innerHTML = 'Stores near ' + zipcode;
+    storesList.innerHTML = '<h3>Stores near </h3>' + zipcode;
     storesUL = document.createElement('ul');
     storesList.appendChild(storesUL);
     document.body.insertBefore(storesList, document.getElementById(mapContainerId).nextSibling);
@@ -195,7 +195,7 @@ function historyStoreDetailDOM() {
     // Display history of stores selected as a DOM list
     storeDetailListHistory = document.createElement('div');
     storeDetailListHistory.id = 'StoreDetailsHistory';
-    storeDetailListHistory.innerHTML = 'History of Selected Stores';
+    storeDetailListHistory.innerHTML = '<h3>History of Selected Stores</h3>';
     storeDetailHistoryUL = document.createElement('ul');
     storeDetailListHistory.appendChild(storeDetailHistoryUL);
     document.body.insertBefore(storeDetailListHistory, document.getElementById(storeHistoryContainerId).nextSibling);
@@ -247,6 +247,7 @@ var buildTrailDetails = function(trail) {
 
     var hikeNameEl = document.createElement("p");
     hikeNameEl.textContent = trail.name;
+    hikeNameEl.classList = "hike-name";
     var hikeCityEl = document.createElement("p");
     hikeCityEl.textContent = trail.location;
 
