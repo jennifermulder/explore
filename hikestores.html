@@ -24,13 +24,12 @@
         </nav>
     </header>
     <!--this hero should be a little smaller than the hike details hero-->
+    <section class="hero"></section>
     <section>
+        <h3>Hike Found:</h3>
         <!--use this ID to attach dynamic elements-->
         <div id="api-hike-detailp3" class="card">
-            <!--example of elements that need to be dynamically created-->
-            <div class="card-image">
-                <img id="hero3-img" src="./assets/images/mountains.jpg">
-            </div>
+            
             <div id="card-contentp3" class="card-content flow-text">
             </div>
         </div>
@@ -53,39 +52,18 @@
         </div>
 
         <div class="section">
-            <h5>Stores found near your hike:</h5>
-            <!-- use this ID to append API Data
-            <div id="hike-containers">
-                <div class="container">
-                    HIKING STORE OPTIONS ARE APPENDED HERE
-                    -->
-                    <!-- <div class="row">
-                        <div class="col s12 m6 l4">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="./assets/images/mountains.jpg">
-                                    <span class="card-title">Card Title</span>
-                                </div>
-                                <div class="card-content">
-                                    <p>Name of store </br> Address: </br> Distance?
-                                    </p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">Directions</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            <h5>Stores found nearby:</h5>
+           
         </div>
 
     </main>
     <!--Google Map, Store List, Selected Store Detail and Store Search History div-->
-    <div id="map" class="container">
+    <div id="map" class="section" >
     </div>
-    <div id="storeSearchHistory" class="container">
+    
+    <div id="storeSearchHistory" class="section">
     </div>
+   
     <footer class="page-footer black lighten-2">
         <div class="footer-copyright black lighten-2">
             <div class="container">
@@ -100,7 +78,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w&callback=main&libraries=places&v=weekly"
         defer></script>
     <script src="./assets/js/storesearch.js"></script>
-    <script src="./assets/js/script.js"></script>
+   
 </body>
 
 </html>

@@ -17,10 +17,10 @@ nav a:hover {
 
 /* Hero Style Start */
 
-/* .hero {
-    background-image: url("../images/mountains.jpg");
-    background-size: cover;
-    background-position: 80%;
+.hero {
+    background-image: url("../images/person-hiking.jpg");
+   
+    
     background-attachment: fixed;
     min-height: 15rem;
 }
@@ -28,15 +28,15 @@ nav a:hover {
 
 /* Hero Style End */
 
-/* #hero3-img {
+#hero-img {
     max-height: 15rem;
-} */ 
+} 
 
 .slider {
     background-position: 80%;
 }
 
-h3 {
+h4 {
     animation: bounce;
     animation-duration: 2s;
 }
@@ -56,8 +56,9 @@ h5 {
 }
 
 #StoreList {
-    text-align: inherit;
-    font-size: x-large;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: large;
     color: blue;
 }
 
@@ -69,4 +70,13 @@ body {
     height: 100%;
     margin: 1;
     padding: 1;
+}
+
+.hike-name {
+    font-weight: bold;
+}
+
+#storeSearchHistory {
+    font-weight: bold;
+    font-size: 5rem;
 }

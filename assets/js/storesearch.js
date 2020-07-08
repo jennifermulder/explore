@@ -247,6 +247,7 @@ var buildTrailDetails = function(trail) {
 
     var hikeNameEl = document.createElement("p");
     hikeNameEl.textContent = trail.name;
+    hikeNameEl.classList = "hike-name";
     var hikeCityEl = document.createElement("p");
     hikeCityEl.textContent = trail.location;
 
