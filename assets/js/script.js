@@ -1,8 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.slider');
-    var instances = M.Slider.init(elems, {});
-});
-
 // Global variables
 var hikeListEl = document.querySelector("#hike-search-container");
 var locationSearchFormEl = document.querySelector("#location-search-form");
@@ -135,3 +130,9 @@ var formSubmitHandler = function(event) {
 
 
 locationSearchFormEl.addEventListener("submit", formSubmitHandler);
+
+// Add slider hero at the top of the page
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems, {});
+});
