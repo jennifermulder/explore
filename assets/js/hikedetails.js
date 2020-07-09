@@ -36,17 +36,18 @@ var buildTrailDetails = function(trail) {
     // Build DOM elements
     var titleEl = document.createElement("h3");
     titleEl.textContent = trail.name;
+    titleEl.classList = "hike-name";
     var imgEl = document.createElement("img");
     imgEl.setAttribute("src", trail.imgSmallMed);
     imgEl.setAttribute("alt", "trail highlight");
     var summaryEl = document.createElement("p");
-    summaryEl.textContent = "Summary: " + trail.summary;
+    summaryEl.innerHTML = "<h5>Summary: </h5>" + trail.summary;
     var locationEl = document.createElement("p");
-    locationEl.textContent = "Location: " + trail.location;
+    locationEl.innerHTML = "<h5>Location: </h5>" + trail.location;
     var distanceEl = document.createElement("p");
-    distanceEl.textContent = "Distance: " + trail.length;
+    distanceEl.innerHTML = "<h5>Distance: </h5>" + trail.length;
     var difficultyEl = document.createElement("p");
-    difficultyEl.textContent = "Difficulty:  ";
+    difficultyEl.innerHTML = "<h5>Difficulty:  </h5>";
 
     // Create the image for the difficulty
     var difficultyImgEl = document.createElement("img");
@@ -56,9 +57,9 @@ var buildTrailDetails = function(trail) {
 
     // Continue DOM elements
     var altitudeHighEl = document.createElement("p");
-    altitudeHighEl.textContent = "High: " + trail.high + " feet"
+    altitudeHighEl.innerHTML = "<h5>High: </h5>" + trail.high + " feet"
     var altitudeLowEl = document.createElement("p");
-    altitudeLowEl.textContent = "Low: " + trail.low + " feet"
+    altitudeLowEl.innerHTML = "<h5>Low: </h5>" + trail.low + " feet"
 
     // Append elements on the list
     hikeListEl.appendChild(titleEl);
