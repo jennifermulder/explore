@@ -41,9 +41,13 @@ var searchAddress = function(address) {
             buildListView(data.trails);
         })
 
-    // Error if bad connection to server
+    // Error if bad connection to server or can't find city
     .catch(function(error) {
-        alert("Unable to find the requested city.");
+        var noTrailWarning = document.querySelector("p");
+        noTrailWarning.classList = "flow-text";
+        noTrailWarning.textContent = "Sorry, no trails are available for the given location. Try a more specific location.";
+        hikeListEl.appendChild(noTrailWarning);
+        return;
     });
 };
 
@@ -116,7 +120,9 @@ var formSubmitHandler = function(event) {
     // Get the address the user input, if empty, alert them and return
     var address = locationSearchDescription.value;
     if (!address) {
-        alert("You must enter an address.");
+        var searchInputEl = document.querySelector("#location-search");
+        searchInputEl.setAttribute("placeholder", "Enter location here...");
+        searchInputEl.focus();
         return;
     }
     locationSearchDescription.value = "";
