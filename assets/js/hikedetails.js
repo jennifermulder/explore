@@ -21,9 +21,9 @@ var getTrailDetails = function(trailID) {
         buildTrailDetails(data.trails[0]);
     })
 
-    // Error catching here
+    // Error catching here; if the trail can't be found, return to main site
     .catch(function(error) {
-        alert("Unable to find the requested trail.");
+        document.location.replace("./index.html");
     });
 }
 

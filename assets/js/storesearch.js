@@ -23,6 +23,7 @@ let maxresults = 10;
 let storeHistory = JSON.parse(localStorage.getItem("store")) || [];
 let maxStoreHistory = 5;
 
+
 // Main function that runs the show.
 function main() {
     if(debug)
@@ -217,6 +218,7 @@ function updateSearchArea() {
 
 
 ////////// Build trail portion /////////////
+var returnBtnEl = document.querySelector("#return-btn");
 
 // Function to pull trail details
 var getTrailDetails = function(trailID) {
@@ -268,4 +270,10 @@ var getTrailID = function() {
     }
 }
 
+// Allows return to hike details page
+var loadHikeDetailsPage = function(event) {
+    returnBtnEl.setAttribute("href", "./hikedetails.html?trail-id=" + trailID);
+}
+
 getTrailID();
+returnBtnEl.addEventListener("click", loadHikeDetailsPage());
