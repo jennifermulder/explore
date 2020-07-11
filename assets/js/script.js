@@ -38,10 +38,7 @@ var searchAddress = function(address) {
 
     // Error if bad connection to server or can't find city
     .catch(function(error) {
-        var noTrailWarning = document.querySelector("p");
-        noTrailWarning.classList = "flow-text";
-        noTrailWarning.textContent = "Sorry, no trails are available for the given location. Try a more specific location.";
-        hikeListEl.appendChild(noTrailWarning);
+        warningMessage();
         return;
     });
 };
@@ -53,10 +50,7 @@ var buildListView = function(trails) {
 
     // If trails is empty, display error message
     if (trails.length === 0) {
-        var noTrailWarning = document.querySelector("p");
-        noTrailWarning.classList = "flow-text";
-        noTrailWarning.textContent = "Sorry, no trails are available for the given location. Try a more specific location.";
-        hikeListEl.appendChild(noTrailWarning);
+        warningMessage();
     }
 
     // Loop through all hikes provided to the user (10)
@@ -106,6 +100,22 @@ var buildListView = function(trails) {
         // Add the container to the full list
         hikeListEl.appendChild(hikeRowEl);
     }
+}
+
+// Helper function for warning message if no trails are available
+var warningMessage = function() {
+
+    // Clear present data
+    hikeListEl.innerHTML = "";
+
+    // Build warning error
+    var noTrailWarning = document.createElement("p");
+    console.log(noTrailWarning);
+    noTrailWarning.classList = "flow-text";
+    noTrailWarning.textContent = "Sorry, no trails are available for the given location. Try a more specific location.";
+
+    // Add error to the page
+    hikeListEl.appendChild(noTrailWarning);
 }
 
 // Process when the form is submitted
