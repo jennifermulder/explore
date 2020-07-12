@@ -38,7 +38,12 @@ var buildTrailDetails = function(trail) {
     titleEl.textContent = trail.name;
     titleEl.classList = "hike-name";
     var imgEl = document.createElement("img");
-    imgEl.setAttribute("src", trail.imgSmallMed);
+    if(trail.imgSmallMed) {
+        imgEl.setAttribute("src", trail.imgSmallMed);
+    }
+    else {
+        imgEl.setAttribute("src", "./assets/images/hike-img-default.png");
+    }
     imgEl.setAttribute("alt", "trail highlight");
     var summaryEl = document.createElement("p");
     summaryEl.innerHTML = "<h5>Summary: </h5>" + trail.summary;
