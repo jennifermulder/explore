@@ -138,11 +138,18 @@ var formSubmitHandler = function(event) {
     searchAddress(address);
 }
 
-
-locationSearchFormEl.addEventListener("submit", formSubmitHandler);
-
 // Add slider hero at the top of the page
-document.addEventListener('DOMContentLoaded', function() {
+var buildSlider = function(event) {
     var elems = document.querySelectorAll('.slider');
     var instances = M.Slider.init(elems, {});
-});
+}
+
+// Open modal
+var openModal = function(event) {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+}
+
+document.addEventListener('DOMContentLoaded', buildSlider);
+document.addEventListener('DOMContentLoaded', openModal);
+locationSearchFormEl.addEventListener("submit", formSubmitHandler);
