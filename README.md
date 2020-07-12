@@ -17,7 +17,7 @@ HIKE FINDER is an easy to use mobile friendly website that allows the user to fi
 * Server-Side APIs
 
 ## Website
-https://jennifer.mulder.github.io/explore/
+https://jennifermulder.github.io/explore/
 
 ## Project Status
 First phase
