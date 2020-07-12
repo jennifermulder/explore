@@ -1,6 +1,6 @@
 # **Explore: Explore the world one Hike at a Time with HIKE FINDER**
 
-![](assets/images/hike-finder.png)
+![](assets/images/hike-finder.jpg)
 
 ## **Purpose**
 During times of social distancing, it is important for people to take advantage of things that still remain open, such as the outdoors, and more specifically - hiking. HIKE FINDER provides the user with a one stop shop for everything they need to know to prepare for their next adventure. 
@@ -17,7 +17,7 @@ HIKE FINDER is an easy to use mobile friendly website that allows the user to fi
 * Server-Side APIs
 
 ## Website
-https://jennifer.mulder.github.io/explore/
+https://jennifermulder.github.io/explore/
 
 ## Project Status
 First phase

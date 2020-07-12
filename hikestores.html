@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!--hinavigation-->
+    <!-- Navigation -->
     <header>
         <nav>
             <div class="nav-wrapper black lighten-2">
@@ -23,11 +23,11 @@
             </div>
         </nav>
     </header>
-    <!--this hero should be a little smaller than the hike details hero-->
+    <!-- Hero -->
     <section class="hero"></section>
     <section>
-        <h3 class="flow-text">Hike Choosen</h3>
-        <!--use this ID to attach dynamic elements-->
+        <h3 class="flow-text">Hike Found:</h3>
+        <!-- Container for dynamic elements -->
         <div id="api-hike-detailp3" class="card">
             <div id="card-contentp3" class="card-content flow-text">
             </div>
@@ -35,20 +35,21 @@
         <h8>
             <a href="hikedetails.html" id="return-btn">Return to Hike Details</a>
         </h8>
-
     </section>
-
+    <!-- Search container -->
     <main class="container">
         <div class="row">
             <div class="section">
                 <h7>Find Stores in a different area:</h7>
-                <!--Search Bar-->
+                <!-- Search Bar -->
                 <div class="zip">
-                    <input id="zipcode" type="textbox" value="" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
+                    <input id="zipcode" type="textbox" value="" title="Please enter a Zip Code"
+                        pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$">
                     <button id="submit" class="btn waves-effect teal darken-4" type="submit" name="action">Submit
                 </div>
             </div>
         </div>
+
     </main>
     <!--Google Map, Store List, Selected Store Detail and Store Search History div-->
     <div id="map" class="row"></div>
@@ -68,7 +69,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWVEsp8JBkgZyxhUjCaO2o7XN61ULxz6w&callback=main&libraries=places&v=weekly"
         defer></script>
     <script src="./assets/js/storesearch.js"></script>
-   
 </body>
 
 </html>
