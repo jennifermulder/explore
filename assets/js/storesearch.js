@@ -6,6 +6,7 @@ let displayMarkerDetails;
 
 // Fixme: Update map elementId name
 let mapContainerId = "map";
+let storeInfo = "storeInformation"
 // Fixme: Update store detail history elementId name
 let storeHistoryContainerId = "storeSearchHistory";
 // Fixme: Update zipcode elementId name
@@ -168,22 +169,23 @@ function historyStoreDetail(name, address){
 function createStoreListDOM(zipcode) {
     // Display nearby search results as a DOM list
     storesList = document.createElement('div');
-    storesList.classList = "container center-align";
+    storesList.className = 'col s12 m4 l4';
     storesList.id = 'StoreList';
-    storesList.innerHTML = '<h4>' + zipcode + '</h4>';
+    storesList.innerHTML = '<h4>Stores Near: ' + zipcode + '</h4>';
     storesUL = document.createElement('ul');
     storesList.appendChild(storesUL);
-    document.body.insertBefore(storesList, document.getElementById(mapContainerId).nextSibling);
+    document.getElementById(storeInfo).appendChild(storesList);
 }
 // Create HTML DOM for detail on selected store
 function createStoreDetailDOM() {
     // Display details on selected result as a DOM list
     storeDetailList = document.createElement('div');
+    storeDetailList.className = 'col s12 m4 l4';
     storeDetailList.id = 'StoreDetails';
-    storeDetailList.innerHTML = 'Selected Store Details';
+    storeDetailList.innerHTML = '<h4>Selected Store Details</h4>';
     storeDetailUL = document.createElement('ul');
     storeDetailList.appendChild(storeDetailUL);
-    document.body.insertBefore(storeDetailList, document.getElementById("StoreList").nextSibling);
+    document.getElementById(storeInfo).appendChild(storeDetailList);
 }
 // Create HTML DOM for store list history and display as a list
 function historyStoreDetailDOM() {
@@ -195,16 +197,15 @@ function historyStoreDetailDOM() {
     }
     // Display history of stores selected as a DOM list
     storeDetailListHistory = document.createElement('div');
+    storeDetailListHistory.className = 'col s12 m4 l4';
     storeDetailListHistory.id = 'StoreDetailsHistory';
-    storeDetailListHistory.classList = "container";
-    storeDetailListHistory.innerHTML = '<h3>History of Selected Stores</h3>';
+    storeDetailListHistory.innerHTML = '<h4>History of Selected Stores</h4>';
     storeDetailHistoryUL = document.createElement('ul');
     storeDetailListHistory.appendChild(storeDetailHistoryUL);
-    document.body.insertBefore(storeDetailListHistory, document.getElementById(storeHistoryContainerId).nextSibling);
+    document.getElementById(storeInfo).appendChild(storeDetailListHistory);
     // Display history on HTML pulled from localstorage
     for (var i = 0; i < storeHistory.length; i++) {
         let storeHistoryLI = document.createElement('li');
-        storeHistoryLI.classList = "section badge";
         storeDetailHistoryUL.appendChild(storeHistoryLI);
         storeHistoryLI.innerHTML += storeHistory[i];
     }
@@ -215,7 +216,6 @@ function updateSearchArea() {
         main();
       });
 }
-
 
 ////////// Build trail portion /////////////
 var returnBtnEl = document.querySelector("#return-btn");

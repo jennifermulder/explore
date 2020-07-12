@@ -1,59 +1,4 @@
-nav a {
-    background-color: black;
-}
-
-nav a:hover {
-    background: teal;
-    color: white;
-    text-decoration: underline;
-}
-
-/* Hero Style Start */
-
-.hero {
-    background-image: url("../images/person-hiking.jpg");
-    background-attachment: fixed;
-    min-height: 15rem;
-}
-
-#hero-img {
-    max-height: 15rem;
-} 
-
-/* h3 {
-    font-weight: bold;
-} */
-
-h4 {
-    animation: bounce;
-    animation-duration: 2s;
-    font-weight: bold;
-}
-
-h6 {
-    animation: heartBeat;
-    animation-duration: 2s;
-}
-
-
-/* Google Maps Styling */
-
-#map {
-    height: 50%;
-    width: 50%;
-    margin: auto;
-}
-
-#StoreList {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-size: large;
-    color: blue;
-}
-
-
-/* Store List and Selected Store Detail Styling */
-
+/* General Styling */
 html,
 body {
     height: 100%;
@@ -61,15 +6,56 @@ body {
     padding: 1;
 }
 
+/* Navigation Bar */
+nav a {
+    background-color: black;
+}
+nav a:hover {
+    background: teal;
+    color: white;
+    text-decoration: underline;
+}
+
 .hike-name {
     font-weight: bold;
 }
 
-#storeSearchHistory {
-    font-weight: bold;
-    font-size: 5rem;
+/* Hero Style Start */
+.hero {
+    background-image: url("../images/person-hiking.jpg");
+    background-attachment: fixed;
+    min-height: 15rem;
 }
-
+#hero-img {
+    max-height: 15rem;
+}
+/* 
+h3 {
+    font-weight: bold;
+}
+*/
+h4 {
+    animation: bounce;
+    animation-duration: 2s;
+    font-weight: bold;
+}
 h5 {
     font-weight: bold;
+}
+h6 {
+    animation: heartBeat;
+    animation-duration: 2s;
+}
+/* Google Maps Styling */
+#map {
+    height: 50%;
+    width: 100%;
+    margin: auto;
+}
+/* Store List and Selected Store Detail Styling */
+#StoreList, #StoreDetails, #StoreDetailsHistory {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 1rem;
+    color: black;
 }
