@@ -110,7 +110,7 @@ var warningMessage = function() {
 
     // Build warning error
     var noTrailWarning = document.createElement("p");
-    console.log(noTrailWarning);
+    // console.log(noTrailWarning);
     noTrailWarning.classList = "flow-text";
     noTrailWarning.textContent = "Sorry, no trails are available for the given location. Try a more specific location.";
 
